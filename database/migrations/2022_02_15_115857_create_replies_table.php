@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('replies', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('ticket_id');
+            $table->text('text');
+            $table->string('repliable_type');
+            $table->bigInteger('repliable_id');
             $table->timestamps();
         });
     }
