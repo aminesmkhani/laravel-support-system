@@ -24,4 +24,9 @@ class AdminController extends Controller
         return view('admin.auth.register');
     }
 
+    public function register()
+    {
+        
+    }
+
 }
