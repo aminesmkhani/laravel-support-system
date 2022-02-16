@@ -6,6 +6,7 @@ use App\Models\Admin;
 use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\UpdateAdminRequest;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -24,9 +25,9 @@ class AdminController extends Controller
         return view('admin.auth.register');
     }
 
-    public function register()
+    public function register(Request $request)
     {
-        
+        dd($request->all());
     }
 
 }

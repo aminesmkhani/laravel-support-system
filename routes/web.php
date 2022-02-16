@@ -19,7 +19,8 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin'],function (){
-   Route::get('register',[AdminController::class,'showRegisterationForm'])->name('admin.register');
+   Route::get('register',[AdminController::class,'showRegisterationForm'])->name('admin.register.form');
+   Route::post('register',[AdminController::class,'register'])->name('admin.register');
 });
 
 
