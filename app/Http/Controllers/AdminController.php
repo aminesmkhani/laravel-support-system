@@ -7,6 +7,7 @@ use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\UpdateAdminRequest;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
@@ -29,6 +30,8 @@ class AdminController extends Controller
     public function register(StoreAdminRequest $request)
     {
         $admin = $this->create($request->all());
+        $this->guard()->login($admin);
+        return redirect($this->redirectTo);
 
     }
 
@@ -42,6 +45,11 @@ class AdminController extends Controller
             'department'    => $data['department']
 
         ]);
+    }
+
+    private function guard()
+    {
+        return Auth::guard('admin');
     }
 
 }

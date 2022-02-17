@@ -61,9 +61,9 @@
 
                 <div class="input-group mb-3">
                         <select name="department" class="form-control">
-                            <option>Tech</option>
-                            <option>Financial</option>
-                            <option>Support</option>
+                            <option value="0">Support</option>
+                            <option value="1">Tech</option>
+                            <option value="2">Financial</option>
                         </select>
                     <div class="input-group-append">
                         <div class="input-group-text">
