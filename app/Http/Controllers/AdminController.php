@@ -7,6 +7,7 @@ use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\UpdateAdminRequest;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -27,7 +28,20 @@ class AdminController extends Controller
 
     public function register(StoreAdminRequest $request)
     {
-        dd($request->all());
+        $admin = $this->create($request->all());
+
+    }
+
+
+    private function create(array $data)
+    {
+        return Admin::create([
+           'name'   =>  $data['name'],
+           'email'  =>  $data['email'],
+           'password'  => Hash::make($data['password']),
+            'department'    => $data['department']
+
+        ]);
     }
 
 }
