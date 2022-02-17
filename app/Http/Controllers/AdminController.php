@@ -25,7 +25,7 @@ class AdminController extends Controller
         return view('admin.auth.register');
     }
 
-    public function register(Request $request)
+    public function register(StoreAdminRequest $request)
     {
         dd($request->all());
     }
